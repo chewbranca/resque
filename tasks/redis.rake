@@ -113,7 +113,7 @@ namespace :redis do
   task :download do
     sh 'rm -rf /tmp/redis/' if File.exists?("/tmp/redis/.svn")
     sh 'git clone git://github.com/antirez/redis.git /tmp/redis' unless File.exists?('/tmp/redis')
-    sh "cd /tmp/redis && git pull" if File.exists?("/tmp/redis/.git")
+    sh "cd /tmp/redis && git checkout --track -b 2.0.0 origin/2.0.0" if File.exists?("/tmp/redis/.git")
   end
 
 end
